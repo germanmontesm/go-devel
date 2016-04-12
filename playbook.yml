@@ -1,0 +1,37 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+      home: /home/vagrant
+      document_root: /vagrant
+      go_path: /vagrant
+  pre_tasks:
+      - name: Update apt cache
+        apt:
+          update_cache=yes
+          cache_valid_time=7200
+      - name: Install required packages
+        apt: name={{ item }} state=installed
+        with_items:
+         - git
+         - exuberant-ctags
+         - tig
+         - gdb
+         - cgdb
+         - make
+         - tree
+         - htop
+         - tmux
+         - man-db
+  tasks:
+      - name: Create go src directory
+        file:
+            dest={{ go_path }}/src/github.com
+            state=directory
+            recurse=yes
+            owner=vagrant
+            group=vagrant
+  roles:
+      - { role: dotfiles, sudo: false }
+      - { role: golang, sudo: false }
+      - { role: vim, sudo: false }
