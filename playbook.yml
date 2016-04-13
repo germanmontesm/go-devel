@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  sudo: true
+  become: true
   vars:
       home: /home/vagrant
       document_root: /vagrant
@@ -32,6 +32,7 @@
             owner=vagrant
             group=vagrant
   roles:
-      - { role: dotfiles, sudo: false }
-      - { role: golang, sudo: false }
-      - { role: vim, sudo: false }
+      - { role: dotfiles, become: false }
+      - { role: golang, become: false }
+      - { role: vim, become: false }
+      - { role: youcompleteme, become: false }
