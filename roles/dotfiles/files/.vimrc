@@ -9,9 +9,8 @@ set autoindent
 set encoding=utf-8
 syntax on
 
-" solarized
-let g:solarized_termcolors=256
-colorscheme solarized
+" Open tagbar with f8
+nmap <F8> :TagbarToggle<CR>
 
 " Enable folding
 set foldmethod=indent
@@ -36,4 +35,5 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
+Plug 'fatih/vim-go'
 call plug#end()
