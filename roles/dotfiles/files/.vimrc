@@ -9,6 +9,8 @@ set autoindent
 set encoding=utf-8
 syntax on
 
+let g:molokai_original = 1
+
 " Open tagbar with f8
 nmap <F8> :TagbarToggle<CR>
 
@@ -37,3 +39,4 @@ Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
 call plug#end()
+
