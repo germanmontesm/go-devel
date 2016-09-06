@@ -30,6 +30,10 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let NERDTreeIgnore=['\~$']
 map <C-n> :NERDTreeToggle<CR>
 
+" tab with nerdtree
+let g:nerdtree_tabs_open_on_console_startup=1
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 " Using vim-plug
 call plug#begin()
 Plug 'majutsushi/tagbar'
@@ -38,5 +42,6 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'fatih/vim-go'
+Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
