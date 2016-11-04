@@ -1,0 +1,16 @@
+[filter "media"]
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --color --pretty=format:\"%Cred%h %Cblue%ad%Creset | %Cgreen%d %Creset%s %Cred[%an]\" --graph --date=short
+    longhist = log --decorate --stat --graph --pretty=format:\"%d %Cgreen%h%Creset (%Cred%an%Creset), %s%n\"
+    type = cat-file -t
+    dump = cat-file -p
+[filter "hawser"]
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true

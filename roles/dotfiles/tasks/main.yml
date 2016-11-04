@@ -5,6 +5,8 @@
     - .bashrc_mods
     - .vimrc
     - .vim
+    - .gitconfig
+    - .gdbinit
 - name: Create vim autoload
   file: path={{ home }}/.vim/autoload state=directory recurse=yes owner=vagrant group=vagrant
 - name: Include .bashrc_mods in .bashrc

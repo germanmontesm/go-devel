@@ -1,9 +1,9 @@
 ---
-#- name: Install go-specific apt packages
-#  sudo: true
-#  apt: name={{ item }} state=latest
-#  with_items:
-#    - vim-gocomplete
+- name: Install go-specific apt packages
+  sudo: true
+  apt: name={{ item }} state=latest
+  with_items:
+    - gccgo
 - name: Download Golang binary distribution
   get_url:
       url=https://storage.googleapis.com/golang/{{ go_archive_file }}
@@ -42,6 +42,8 @@
   with_items:
       - github.com/nsf/gocode
       - bitbucket.org/gotamer/gowatch
+      - github.com/golang/protobuf/proto
+      - github.com/golang/protobuf/protoc-gen-go
 - name: Check out vim-go
   git:
     repo=https://github.com/fatih/vim-go.git
