@@ -6,7 +6,8 @@ set shiftwidth=4
 set textwidth=79
 set expandtab
 set autoindent
-set encoding=utf-8
+set encoding=utf8
+
 syntax on
 
 let g:molokai_original = 1
