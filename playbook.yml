@@ -11,18 +11,22 @@
           update_cache=yes
           cache_valid_time=7200
       - name: Install required packages
-        apt: name={{ item }} state=installed
-        with_items:
-         - git
-         - exuberant-ctags
-         - tig
-         - gdb
-         - cgdb
-         - make
-         - tree
-         - htop
-         - tmux
-         - man-db
+        apt: 
+          name:
+            - git
+            - exuberant-ctags
+            - tig
+            - gdb
+            - cgdb
+            - autoconf
+            - libtool
+            - make
+            - tree
+            - htop
+            - tmux
+            - man-db
+          state: present
+          autoclean: yes
   tasks:
       - name: Create go src directory
         file:
@@ -32,7 +36,7 @@
             owner=vagrant
             group=vagrant
   roles:
-      - { role: dotfiles, become: false }
-      - { role: golang, become: false }
-      - { role: vim, become: false }
-      - { role: youcompleteme, become: false }
+      - { role: dotfiles, become: no }
+      - { role: golang, become: no }
+      - { role: vim, become: no }
+      - { role: youcompleteme, become: no }

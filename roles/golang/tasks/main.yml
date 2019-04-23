@@ -1,9 +1,11 @@
 ---
 - name: Install go-specific apt packages
-  sudo: true
-  apt: name={{ item }} state=latest
-  with_items:
-    - gccgo
+  become: yes
+  apt:
+    name:
+      - gccgo
+    state: present
+    autoclean: yes
 - name: Download Golang binary distribution
   get_url:
       url=https://storage.googleapis.com/golang/{{ go_archive_file }}
